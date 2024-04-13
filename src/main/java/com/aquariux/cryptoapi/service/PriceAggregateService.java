@@ -1,9 +1,11 @@
 package com.aquariux.cryptoapi.service;
 
 import com.aquariux.cryptoapi.dto.CommonTicker;
+import com.aquariux.cryptoapi.dto.PriceAggDTO;
 import com.aquariux.cryptoapi.entity.PriceAgg;
 import com.aquariux.cryptoapi.repository.PriceAggregateRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,7 +17,7 @@ import java.util.List;
 public class PriceAggregateService {
 
     private final PriceAggregateRepository priceAggregateRepository;
-
+    private final ModelMapper mapper;
 
     public void createPriceAgg(List<CommonTicker> commonTickers){
 
@@ -40,13 +42,16 @@ public class PriceAggregateService {
                 .build();
 
         priceAggregateRepository.save(priceAgg);
-
-
-
     }
 
 
+    public PriceAggDTO getLatestBestPriceAgg(String symbol) {
+        PriceAgg priceAgg = priceAggregateRepository.getLatestBestPriceAgg(symbol);
+        return mapToPriceAggDTO(priceAgg);
+    }
 
-
-
+    private PriceAggDTO mapToPriceAggDTO(PriceAgg priceAgg){
+        PriceAggDTO priceAggDTO = mapper.map(priceAgg, PriceAggDTO.class);
+        return priceAggDTO;
+    }
 }

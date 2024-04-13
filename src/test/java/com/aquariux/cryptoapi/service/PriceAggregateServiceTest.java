@@ -3,6 +3,7 @@ package com.aquariux.cryptoapi.service;
 import com.aquariux.cryptoapi.dto.BinanceTickerResponseDTO;
 import com.aquariux.cryptoapi.dto.CommonTicker;
 import com.aquariux.cryptoapi.dto.HoubiDataDTO;
+import com.aquariux.cryptoapi.dto.PriceAggDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +19,7 @@ public class PriceAggregateServiceTest {
     private PriceAggregateService paService;
 
     @Test
-    public void printListBinanceTicker(){
+    public void printCreatePriceAgg(){
 
 
         CommonTicker commonTickerB = CommonTicker.builder()
@@ -44,6 +45,13 @@ public class PriceAggregateServiceTest {
 
         paService.createPriceAgg(commonTickers);
 
+    }
+
+    @Test
+    public void getLatestBestPriceAgg(){
+
+        PriceAggDTO priceAggDTO = paService.getLatestBestPriceAgg("ETHUSDT");
+        System.out.println(priceAggDTO);
     }
 
 }

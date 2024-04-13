@@ -73,7 +73,7 @@ public class CalPriceAggregate {
                 .source("Binance")
                 .build();
         CommonTicker commonTickerH = CommonTicker.builder()
-                .symbol(houbiPrice.getSymbol())
+                .symbol(houbiPrice.getSymbol().toUpperCase())
                 .bidPrice(houbiPrice.getBid())
                 .bidQty(houbiPrice.getBidSize())
                 .askPrice(houbiPrice.getAsk())

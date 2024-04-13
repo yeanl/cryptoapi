@@ -23,23 +23,13 @@ public class BinanceTickerClientService {
     }
 
     public List<BinanceTickerResponseDTO> getBinancePrice(){
-//        return body = restClient
-//                    .get()
-//                    .retrieve()
-//                    .body(new ParameterizedTypeReference<List<BinanceTickerResponseDTO>>() {
-//                    });
         return restClient
                 .get()
                 .retrieve()
                 .body(new ParameterizedTypeReference<List<BinanceTickerResponseDTO>>() {});
     }
 
-//    public List<CommonTicker> getBinanceETPrice(){
-//            body.stream()
-//                .filter(a -> a.getSymbol().equalsIgnoreCase("ETHUSDT") || a.getSymbol().equalsIgnoreCase("BTCUSDT"))
-//                .collect(Collectors.toList());
-//
-//    }
+
 
 
 
