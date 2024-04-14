@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-//@ControllerAdvice
+@ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);

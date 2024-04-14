@@ -1,8 +1,7 @@
 package com.aquariux.cryptoapi.service;
 
-import com.aquariux.cryptoapi.dto.BinanceTickerResponseDTO;
+
 import com.aquariux.cryptoapi.dto.CommonTicker;
-import com.aquariux.cryptoapi.dto.HoubiDataDTO;
 import com.aquariux.cryptoapi.dto.PriceAggDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @SpringBootTest
 public class PriceAggregateServiceTest {

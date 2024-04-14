@@ -90,7 +90,7 @@ public class CalPriceAggregate {
 
 
 
-    @Scheduled(fixedRate = 100000) //10000
+    @Scheduled(fixedRate = 10000) //10000
     public void reportCurrentTime() {
         combineDataForETHUSDT();
         combineDataForBTCUSDT();

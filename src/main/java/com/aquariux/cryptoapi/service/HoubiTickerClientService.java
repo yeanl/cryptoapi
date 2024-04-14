@@ -1,12 +1,10 @@
 package com.aquariux.cryptoapi.service;
 
-import com.aquariux.cryptoapi.dto.CommonTicker;
+
 import com.aquariux.cryptoapi.dto.HoubiTickerResponseDTO;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import java.util.List;
 
 @Service
 public class HoubiTickerClientService {

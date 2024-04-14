@@ -21,8 +21,7 @@ public class CryptoapiApplication {
 
 }
 
-//	insert into customer (id, email, name) values (1, 'abc@gmail.com', 'abc tan')
-//	insert into wallet(id, customer_id, balance) values (1, 1, 5000)
+
 
 /***
  *
