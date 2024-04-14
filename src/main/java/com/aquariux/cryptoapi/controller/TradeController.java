@@ -1,24 +1,32 @@
 package com.aquariux.cryptoapi.controller;
 
-import com.aquariux.cryptoapi.dto.PriceAggDTO;
-import com.aquariux.cryptoapi.service.PriceAggregateService;
+import com.aquariux.cryptoapi.dto.TradeHistoryResponse;
+import com.aquariux.cryptoapi.dto.TradeRequest;
+import com.aquariux.cryptoapi.dto.TradeResponse;
+import com.aquariux.cryptoapi.service.TradeService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/trade/v1")
 public class TradeController {
 
-    private final PriceAggregateService paService;
+    private final TradeService service;
 
-    @GetMapping("/price/latest/{symbol}")
-    public PriceAggDTO getLatestBestPriceAgg(@PathVariable String symbol){
-        return paService.getLatestBestPriceAgg(symbol);
-
+    @PostMapping("/deal")
+    public ResponseEntity<TradeResponse> createTrade(@RequestBody TradeRequest tradeRequest, HttpServletRequest request){
+        return ResponseEntity.ok(service.createTrade(tradeRequest, request));
     }
+
+    @GetMapping("/history/{walletId}")
+    public List<TradeHistoryResponse> getTradeHistory(@PathVariable long walletId){
+        return service.getTradeHistory(walletId);
+    }
+
 
 }

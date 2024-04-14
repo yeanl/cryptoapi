@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -30,7 +31,31 @@ public class Wallet {
 
 
     @OneToMany(mappedBy="wallet",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CrytoType> crytoTypes;
+    private List<CryptoType> cryptoTypes;
+
+    @OneToMany(mappedBy="wallet",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Trade> trades;
+
+
+    public void addCrytoType(CryptoType cryptoType){
+        if (cryptoType !=null){
+            if (cryptoTypes == null){
+                cryptoTypes = new ArrayList<>();
+            }
+            cryptoType.setWallet(this);
+            cryptoTypes.add(cryptoType);
+        }
+    }
+
+    public void addTrade(Trade trade){
+        if (trade!=null){
+            if (trades == null){
+                trades = new ArrayList<>();
+            }
+            trade.setWallet(this);
+            trades.add(trade);
+        }
+    }
 
 
 }

@@ -20,3 +20,21 @@ public class CryptoapiApplication {
 	}
 
 }
+
+//	insert into customer (id, email, name) values (1, 'abc@gmail.com', 'abc tan')
+//	insert into wallet(id, customer_id, balance) values (1, 1, 5000)
+
+/***
+ *
+ *insert into customer (id, email, name) values (1, 'abc@gmail.com', 'abc tan');
+ * insert into wallet(id, customer_id, balance) values (1, 1, 1050000)
+ * update wallet set balance=50000 where id=1
+ *
+ * select * from price_agg;
+ * select * from customer;
+ * select * from wallet;
+ * select * from trade;
+ * select * from cryto_type
+ *
+ *
+ */
