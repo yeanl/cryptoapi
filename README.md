@@ -8,3 +8,6 @@ select * from customer;
 select * from wallet;
 select * from trade;
 select * from cryto_type;
+
+
+http://localhost:8080/h2-console/login.jsp
